@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hacos</title>
+<meta name="description" content="Trang giới thiệu của HACOS: producer, designer, coder, tricker, gdtg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Be+Vietnam+Pro:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+/* Bố cục: một cột hẹp, chữ blackletter khổng lồ ở đầu trang, con mèo nằm trong vòng tròn trời sao đè lên chân chữ. */
+:root{
+  --bg:#0d1017;
+  --surface:#151a24;
+  --line:#2a3140;
+  --fg:#dfe2e8;
+  --muted:#a2abba;
+  --letter:#cdd1d9;
+  --star:#f3dc6b;
+  --cat:#a8dcff;
+  --navy:#2a4272;
+  --display:'UnifrakturCook','UnifrakturMaguntia',serif;
+  --body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:radial-gradient(ellipse at 50% 0%, #2a303c 0%, var(--bg) 60%) no-repeat, var(--bg);
+  color:var(--fg);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.7;
+  padding-block:0 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap{max-width:880px;margin:0 auto}
+a{color:var(--cat)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--star);outline-offset:3px}
+
+.top{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-block:20px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted)
+}
+.top nav{display:flex;gap:20px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--fg)}
+
+.hero{position:relative;text-align:center;padding-top:12px}
+.hero h1{
+  margin:0;font-family:var(--display);font-weight:700;color:var(--letter);
+  font-size:clamp(120px,30vw,300px);line-height:.95;letter-spacing:.01em;
+}
+.roles{
+  margin:8px 0 0;font-family:var(--mono);font-size:clamp(11px,2.6vw,15px);
+  letter-spacing:.12em;color:var(--fg)
+}
+.disc{
+  display:block;width:clamp(180px,34vw,260px);height:auto;margin:-18px auto 0;
+  filter:drop-shadow(0 0 32px rgba(6,9,18,.9))
+}
+
+section{padding-top:64px}
+h2{
+  margin:0 0 20px;font-family:var(--mono);font-weight:400;font-size:13px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted)
+}
+.about p{margin:0 0 16px;max-width:62ch;font-size:19px;text-wrap:pretty}
+
+.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:18px 4px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:clamp(20px,5vw,30px);letter-spacing:.04em;
+  transition:color .2s, padding-left .2s
+}
+.list li span{font-size:12px;color:var(--muted);letter-spacing:.1em}
+.list li:hover{color:var(--star);padding-left:12px}
+
+.contact .row{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+  padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  max-width:560px
+}
+.contact .label{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.08em}
+.contact .value{flex:1 1 200px;min-width:0;overflow-wrap:anywhere}
+.contact button{
+  font:inherit;font-size:14px;padding:10px 16px;min-height:44px;border-radius:8px;
+  background:var(--cat);color:#0d1017;border:0;cursor:pointer;font-weight:600
+}
+.contact button:hover{background:#c2e8ff}
+.contact .hint{margin:14px 0 0;color:var(--muted);font-size:15px}
+
+footer{
+  margin-top:72px;padding-top:20px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted)
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.list li{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span>hacos</span>
+    <nav aria-label="Điều hướng">
+      <a href="#gioi-thieu">giới thiệu</a>
+      <a href="#vai-tro">vai trò</a>
+      <a href="#lien-he">liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>hacos</h1>
+      <p class="roles">producer - designer - coder - tricker - gdtg</p>
+
+      <svg class="disc" viewBox="0 0 420 420" role="img" aria-label="Con mèo xanh nhạt ngậm một bông hoa trên nền trời sao">
+        <defs><clipPath id="disc"><circle cx="210" cy="210" r="210"/></clipPath></defs>
+        <g clip-path="url(#disc)">
+          <rect width="420" height="420" fill="#2a4272"/>
+          <g fill="#f3dc6b">
+            <path transform="translate(138 32)" d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8Z"/>
+            <path transform="translate(288 46)" d="M0 -9 Q0 0 9 0 Q0 0 0 9 Q0 0 -9 0 Q0 0 0 -9Z"/>
+            <path transform="translate(316 66)" d="M0 -12 Q0 0 12 0 Q0 0 0 12 Q0 0 -12 0 Q0 0 0 -12Z"/>
+            <path transform="translate(114 80)" d="M0 -15 Q0 0 15 0 Q0 0 0 15 Q0 0 -15 0 Q0 0 0 -15Z"/>
+            <path transform="translate(379 128)" d="M0 -15 Q0 0 15 0 Q0 0 0 15 Q0 0 -15 0 Q0 0 0 -15Z"/>
+            <path transform="translate(32 136)" d="M0 -8 Q0 0 8 0 Q0 0 0 8 Q0 0 -8 0 Q0 0 0 -8Z"/>
+            <path transform="translate(75 162)" d="M0 -12 Q0 0 12 0 Q0 0 0 12 Q0 0 -12 0 Q0 0 0 -12Z"/>
+            <path transform="translate(337 160)" d="M0 -7 Q0 0 7 0 Q0 0 0 7 Q0 0 -7 0 Q0 0 0 -7Z"/>
+          </g>
+          <ellipse cx="76" cy="238" rx="16" ry="14" fill="#a8dcff"/>
+          <ellipse cx="345" cy="234" rx="14" ry="13" fill="#a8dcff"/>
+          <path d="M62 420 C66 350 76 270 98 196 L138 125 L178 190 Q206 198 236 188 L276 125 L320 198 C338 266 350 346 358 420 Z" fill="#a8dcff"/>
+          <path d="M138 125 L178 190 Q206 198 236 188 L276 125 C250 96 168 96 138 125 Z" fill="#2a4272"/>
+          <path d="M158 322 Q210 330 262 322" fill="none" stroke="#7f9db8" stroke-width="3" stroke-linecap="round"/>
+          <path d="M240 328 Q252 338 262 350" fill="none" stroke="#2fa57e" stroke-width="3" stroke-linecap="round"/>
+          <g transform="translate(266 352)">
+            <circle cx="0" cy="-12" r="9" fill="#97a3ea"/>
+            <circle cx="12" cy="-4" r="9" fill="#97a3ea"/>
+            <circle cx="8" cy="10" r="9" fill="#97a3ea"/>
+            <circle cx="-8" cy="10" r="9" fill="#97a3ea"/>
+            <circle cx="-12" cy="-4" r="9" fill="#97a3ea"/>
+            <circle cx="0" cy="0" r="6" fill="#f3dc6b"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <section id="gioi-thieu" class="about">
+      <h2>giới thiệu</h2>
+      <!-- Sửa các đoạn dưới đây thành nội dung của bạn -->
+      <p>Xin chào, mình là HACOS.</p>
+      <p>Mình làm nhiều thứ cùng lúc: lên ý tưởng, thiết kế, viết code và nghịch trick. Trang này là nơi mình gom lại những thứ đó.</p>
+    </section>
+
+    <section id="vai-tro">
+      <h2>vai trò</h2>
+      <ul class="list">
+        <li>producer</li>
+        <li>designer</li>
+        <li>coder</li>
+        <li>tricker</li>
+        <li>gdtg</li>
+      </ul>
+    </section>
+
+    <section id="lien-he" class="contact">
+      <h2>liên hệ</h2>
+      <div class="row">
+        <span class="label">facebook</span>
+        <span class="value" id="fb">[dán link Facebook của bạn vào đây]</span>
+        <button type="button" id="copy">Sao chép</button>
+      </div>
+      <p class="hint" id="msg" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>hacos</footer>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'),val=document.getElementById('fb'),msg=document.getElementById('msg');
+  btn.addEventListener('click',function(){
+    var t=val.textContent;
+    function ok(){msg.textContent='Đã sao chép.';}
+    function fail(){
+      var r=document.createRange();r.selectNodeContents(val);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      msg.textContent='Hãy giữ và chọn Sao chép trên dòng vừa được chọn.';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(ok,fail);
+    }else{fail();}
+  });
+})();
+</script>
+</body>
+</html>
